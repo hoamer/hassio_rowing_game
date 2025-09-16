@@ -1,0 +1,27 @@
+opponent_3_pace_seconds:
+  name: Opponent 3 Pace (per 500m, s)
+  min: 60
+  max: 300
+  step: 1
+  unit_of_measurement: "s"
+
+opponent_4_pace_seconds:
+  name: Opponent 4 Pace (per 500m, s)
+  min: 60
+  max: 300
+  step: 1
+  unit_of_measurement: "s"
+
+ai_opponent_1_hardness:
+  name: Opponent 1 hardness
+  min: 0.5
+  max: 2
+  step: 0.1
+  unit_of_measurement: "steps"
+
+ai_opponent_2_hardness:
+  name: Opponent 2 hardness
+  min: 0.5
+  max: 2
+  step: 0.1
+  unit_of_measurement: "steps"

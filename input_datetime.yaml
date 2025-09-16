@@ -1,0 +1,9 @@
+opponent_3_start_time:
+  name: Opponent 3 Start Time
+  has_time: true
+  has_date: false
+opponent_4_start_time:
+  name: Opponent 4 Start Time
+  has_time: true
+  has_date: false
+

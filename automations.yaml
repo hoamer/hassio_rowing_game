@@ -1,0 +1,38 @@
+alias: Reset AI Opponent On Start
+description: ""
+triggers:
+  - entity_id:
+      - sensor.rower_distance_total
+    from: "3"
+    trigger: state
+  - entity_id:
+      - sensor.rower_distance_total
+    from: "6"
+    trigger: state
+  - entity_id:
+      - sensor.rower_distance_total
+    from: "5"
+    trigger: state
+  - entity_id:
+      - sensor.rower_distance_total
+    from: "4"
+    trigger: state
+actions:
+  - target:
+      entity_id: input_number.ai_opponent_hardness
+    data:
+      value: "{{ states('input_number.ai_opponent_hardness') | float }}"
+    action: input_number.set_value
+  - action: input_datetime.set_datetime
+    metadata: {}
+    data:
+      time: "{{ now().strftime('%H:%M:%S') }}"
+    target:
+      entity_id: input_datetime.opponent_3_start_time
+  - action: input_datetime.set_datetime
+    metadata: {}
+    data:
+      time: "{{ now().strftime('%H:%M:%S') }}"
+    target:
+      entity_id: input_datetime.opponent_4_start_time
+

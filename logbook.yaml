@@ -1,0 +1,7 @@
+exclude:
+  entities:
+    - sensor.opponent_3_progress
+    - sensor.opponent_4_progress
+    - sensor.ai_boat_1_progress
+    - sensor.ai_boat_2_progress
+

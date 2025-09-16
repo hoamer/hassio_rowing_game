@@ -1,0 +1,134 @@
+- sensor:
+    - name: "ai_boat_1_progress"
+      unique_id: ai_boat_1_progress_id
+      state: >
+        {% set s1 = states('sensor.ai_boat_2_progress') %}
+        {% set s2 = states('sensor.opponent_3_progress') %}
+        {% set s3 = states('sensor.opponent_4_progress') %}
+        {% set s4 = states('sensor.user_boat_progress') %}
+        {% if states('sensor.ai_boat_1_progress_id') == 'unknown' %}
+          0
+        {% elif s1 == '100' or s2 == '100' or s3 == '100' or s4 == '100'%}
+          {{ states('sensor.ai_boat_1_progress_id') }}
+        {% else %}
+          {% set hardness = states('input_number.ai_opponent_1_hardness') | float(1) %}
+          {% set goal = states('input_number.rowing_distance') | float(1) %}
+          {% set distance = states('sensor.rower_distance_total') | float(0) %}
+          {% set rand = states('sensor.ai_boat_2_var') | float(100) %}
+          {% if goal > 0 %}
+            {{ [(((distance * hardness) / goal) * (rand / 100) * 100) | int, 100] | min }}
+          {% else %}
+            0
+          {% endif %}
+        {% endif %}
+
+    - name: "ai_boat_2_progress"
+      unique_id: ai_boat_2_progress_id
+      unit_of_measurement: "%"
+      state: >
+        {% set s1 = states('sensor.ai_boat_1_progress') %}
+        {% set s2 = states('sensor.opponent_3_progress') %}
+        {% set s3 = states('sensor.opponent_4_progress') %}
+        {% set s4 = states('sensor.user_boat_progress') %}
+        {% if states('sensor.ai_boat_2_progress_id') == 'unknown' %}
+          0
+        {% elif s1 == '100' or s2 == '100' or s3 == '100' or s4 == '100'%}
+          {{ states('sensor.ai_boat_2_progress_id') }}
+        {% else %}
+          {% set hardness = states('input_number.ai_opponent_2_hardness') | float(1) %}
+          {% set goal = states('input_number.rowing_distance') | float(1) %}
+          {% set distance = states('sensor.rower_distance_total') | float(0) %}
+          {% set rand = states('sensor.ai_boat_2_var') | float(100) %}
+          {% if goal > 0 %}
+            {{ [(((distance * hardness) / goal) * (rand / 100) * 100) | int, 100] | min }}
+          {% else %}
+            0
+          {% endif %}
+        {% endif %}
+
+    - name: "user_boat_progress"
+      unique_id: user_boat_progress_id
+      unit_of_measurement: "%"
+      state: >
+          {% set goal = states('input_number.rowing_distance') | float(1) %}
+          {% set actual = states('sensor.rower_distance_total') | float(0) %}
+          {% if goal > 0 %}
+            {{ [((actual / goal) * 100) | int, 100] | min }}
+          {% else %}
+            0
+          {% endif %}
+
+- trigger:
+    - platform: time_pattern
+      seconds: "/1"
+  sensor:
+    - name: "Opponent 3 Progress"
+      unique_id: opponent_3_progress
+      unit_of_measurement: "%"
+      state: >
+        {% set s1 = states('sensor.ai_boat_1_progress') %}
+        {% set s2 = states('sensor.ai_boat_2_progress') %}
+        {% set s3 = states('sensor.opponent_4_progress') %}
+        {% set s4 = states('sensor.user_boat_progress') %}
+        {% if states('sensor.opponent_3_progress') == 'unknown' %}
+          0
+        {% elif s1 == '100' or s2 == '100' or s3 == '100' or s4 == '100'%}
+          {{ states('sensor.opponent_3_progress') }}
+        {% else %}
+          {% set input_time = states('input_datetime.opponent_3_start_time') %}
+          {% set now_ts = as_timestamp(now()) %}
+          {% if input_time not in ['unknown', 'unavailable', None] %}
+            {% set start = (now().replace(
+              hour=input_time[0:2]|int,
+              minute=input_time[3:5]|int,
+              second=0,
+              microsecond=0
+            )).timestamp() %}
+            {% set elapsed = now_ts - start if start > 0 else 0 %}
+            {% set session_distance = states('input_number.rowing_distance') | int(500) %}
+            {% set pace = states('input_number.opponent_3_pace_seconds') | int(120) %}
+            {% set totalsec = (session_distance / 500) * pace %}
+            {% set pct = (elapsed / totalsec * 100) | int %}
+            {{ [pct, 100] | min if start > 0 and elapsed <= totalsec else 100 }}
+          {% else %}
+            0
+          {% endif %}
+        {% endif %}
+
+- trigger:
+    - platform: time_pattern
+      seconds: "/1"
+  sensor:
+    - name: "Opponent 4 Progress"
+      unique_id: opponent_4_progress
+      unit_of_measurement: "%"
+      state: >
+        {% set s1 = states('sensor.ai_boat_1_progress') %}
+        {% set s2 = states('sensor.ai_boat_2_progress') %}
+        {% set s3 = states('sensor.opponent_3_progress') %}
+        {% set s4 = states('sensor.user_boat_progress') %}
+        {% if states('sensor.opponent_4_progress') == 'unknown' %}
+          0
+        {% elif s1 == '100' or s2 == '100' or s3 == '100' or s4 == '100'%}
+          {{ states('sensor.opponent_4_progress') }}
+        {% else %}
+          {# original logic here #}
+          {% set input_time = states('input_datetime.opponent_4_start_time') %}
+          {% set now_ts = as_timestamp(now()) %}
+          {% if input_time not in ['unknown', 'unavailable', None] %}
+            {% set start = (now().replace(
+              hour=input_time[0:2]|int,
+              minute=input_time[3:5]|int,
+              second=0,
+              microsecond=0
+            )).timestamp() %}
+            {% set elapsed = now_ts - start if start > 0 else 0 %}
+            {% set session_distance = states('input_number.rowing_distance') | int(500) %}
+            {% set pace = states('input_number.opponent_4_pace_seconds') | int(120) %}
+            {% set totalsec = (session_distance / 500) * pace %}
+            {% set pct = (elapsed / totalsec * 100) | int %}
+            {{ [pct, 100] | min if start > 0 and elapsed <= totalsec else 100 }}
+          {% else %}
+            0
+          {% endif %}
+        {% endif %}

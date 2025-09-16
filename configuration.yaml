@@ -1,0 +1,6 @@
+input_number: !include input_numbers.yaml
+input_datetime: !include input_datetime.yaml
+template: !include templates.yaml
+sensor: !include sensors.yaml
+logbook: !include logbook.yaml
+history: !include history.yaml

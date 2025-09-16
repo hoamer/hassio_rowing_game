@@ -1,0 +1,1605 @@
+views:
+  - type: sections
+    max_columns: 4
+    title: Third Rowing Game
+    path: third-rowing-game
+    icon: mdi:rowing
+    sections:
+      - type: grid
+        cards: []
+        column_span: 4
+      - type: grid
+        cards:
+          - type: gauge
+            entity: sensor.ai_boat_1_progress
+            min: 0
+            max: 100
+            name: AI Boat 1 Progress
+            grid_options:
+              rows: 1.7
+              columns: 12
+            unit: '%'
+          - type: gauge
+            entity: sensor.ai_boat_2_progress
+            min: 0
+            max: 100
+            name: AI Boat 2 Progress
+            grid_options:
+              columns: 12
+              rows: 1.7
+            unit: '%'
+          - type: gauge
+            entity: sensor.opponent_3_progress
+            min: 0
+            max: 100
+            name: User Boat Progress
+            needle: false
+            grid_options:
+              columns: 12
+              rows: 1.7
+          - type: gauge
+            entity: sensor.opponent_4_progress
+            min: 0
+            max: 100
+            name: User Boat Progress
+            needle: false
+            grid_options:
+              columns: 12
+              rows: 1.7
+          - type: gauge
+            entity: sensor.user_boat_progress
+            min: 0
+            max: 100
+            name: User Boat Progress
+            needle: false
+            severity:
+              green: 0
+              yellow: 0
+              red: 0
+            grid_options:
+              columns: 12
+              rows: 1.7
+          - type: custom:mushroom-number-card
+            entity: input_number.rowing_distance
+            name: Distanz
+            icon: mdi:map-marker-distance
+            icon_color: green
+            fill_container: true
+            layout: horizontal
+            display_mode: buttons
+          - type: custom:mushroom-number-card
+            entity: input_number.ai_opponent_1_hardness
+            name: Stärke Gegner 1
+            icon: mdi:stairs-up
+            icon_color: orange
+          - type: custom:mushroom-number-card
+            entity: input_number.ai_opponent_2_hardness
+            name: Stärke Gegner 2
+            icon: mdi:stairs-up
+            icon_color: orange
+          - type: custom:mushroom-number-card
+            entity: input_number.opponent_3_pace_seconds
+            name: Gegner 3 | s/500m
+            icon: mdi:stairs-up
+            icon_color: orange
+          - type: custom:mushroom-number-card
+            entity: input_number.opponent_4_pace_seconds
+            name: Gegner 4 | s/500m
+            icon: mdi:stairs-up
+            icon_color: orange
+      - type: grid
+        cards:
+          - type: picture-elements
+            image: /local/river-background.png
+            elements:
+              - type: conditional
+                conditions:
+                  - entity: sensor.ai_boat_1_progress
+                    state: '100'
+                elements:
+                  - type: image
+                    entity: sensor.ai_boat_1_progress
+                    state_image:
+                      '100': /local/boat-orange-100.png
+                    style:
+                      top: 50%
+                      left: 50%
+                      width: 100%
+                      background-color: orange
+                      z-index: 1
+              - type: image
+                entity: sensor.ai_boat_1_progress
+                state_image:
+                  '0': /local/boat-orange-0.png
+                  '1': /local/boat-orange-1.png
+                  '2': /local/boat-orange-2.png
+                  '3': /local/boat-orange-3.png
+                  '4': /local/boat-orange-4.png
+                  '5': /local/boat-orange-5.png
+                  '6': /local/boat-orange-6.png
+                  '7': /local/boat-orange-7.png
+                  '8': /local/boat-orange-8.png
+                  '9': /local/boat-orange-9.png
+                  '10': /local/boat-orange-10.png
+                  '11': /local/boat-orange-11.png
+                  '12': /local/boat-orange-12.png
+                  '13': /local/boat-orange-13.png
+                  '14': /local/boat-orange-14.png
+                  '15': /local/boat-orange-15.png
+                  '16': /local/boat-orange-16.png
+                  '17': /local/boat-orange-17.png
+                  '18': /local/boat-orange-18.png
+                  '19': /local/boat-orange-19.png
+                  '20': /local/boat-orange-20.png
+                  '21': /local/boat-orange-21.png
+                  '22': /local/boat-orange-22.png
+                  '23': /local/boat-orange-23.png
+                  '24': /local/boat-orange-24.png
+                  '25': /local/boat-orange-25.png
+                  '26': /local/boat-orange-26.png
+                  '27': /local/boat-orange-27.png
+                  '28': /local/boat-orange-28.png
+                  '29': /local/boat-orange-29.png
+                  '30': /local/boat-orange-30.png
+                  '31': /local/boat-orange-31.png
+                  '32': /local/boat-orange-32.png
+                  '33': /local/boat-orange-33.png
+                  '34': /local/boat-orange-34.png
+                  '35': /local/boat-orange-35.png
+                  '36': /local/boat-orange-36.png
+                  '37': /local/boat-orange-37.png
+                  '38': /local/boat-orange-38.png
+                  '39': /local/boat-orange-39.png
+                  '40': /local/boat-orange-40.png
+                  '41': /local/boat-orange-41.png
+                  '42': /local/boat-orange-42.png
+                  '43': /local/boat-orange-43.png
+                  '44': /local/boat-orange-44.png
+                  '45': /local/boat-orange-45.png
+                  '46': /local/boat-orange-46.png
+                  '47': /local/boat-orange-47.png
+                  '48': /local/boat-orange-48.png
+                  '49': /local/boat-orange-49.png
+                  '50': /local/boat-orange-50.png
+                  '51': /local/boat-orange-51.png
+                  '52': /local/boat-orange-52.png
+                  '53': /local/boat-orange-53.png
+                  '54': /local/boat-orange-54.png
+                  '55': /local/boat-orange-55.png
+                  '56': /local/boat-orange-56.png
+                  '57': /local/boat-orange-57.png
+                  '58': /local/boat-orange-58.png
+                  '59': /local/boat-orange-59.png
+                  '60': /local/boat-orange-60.png
+                  '61': /local/boat-orange-61.png
+                  '62': /local/boat-orange-62.png
+                  '63': /local/boat-orange-63.png
+                  '64': /local/boat-orange-64.png
+                  '65': /local/boat-orange-65.png
+                  '66': /local/boat-orange-66.png
+                  '67': /local/boat-orange-67.png
+                  '68': /local/boat-orange-68.png
+                  '69': /local/boat-orange-69.png
+                  '70': /local/boat-orange-70.png
+                  '71': /local/boat-orange-71.png
+                  '72': /local/boat-orange-72.png
+                  '73': /local/boat-orange-73.png
+                  '74': /local/boat-orange-74.png
+                  '75': /local/boat-orange-75.png
+                  '76': /local/boat-orange-76.png
+                  '77': /local/boat-orange-77.png
+                  '78': /local/boat-orange-78.png
+                  '79': /local/boat-orange-79.png
+                  '80': /local/boat-orange-80.png
+                  '81': /local/boat-orange-81.png
+                  '82': /local/boat-orange-82.png
+                  '83': /local/boat-orange-83.png
+                  '84': /local/boat-orange-84.png
+                  '85': /local/boat-orange-85.png
+                  '86': /local/boat-orange-86.png
+                  '87': /local/boat-orange-87.png
+                  '88': /local/boat-orange-88.png
+                  '89': /local/boat-orange-89.png
+                  '90': /local/boat-orange-90.png
+                  '91': /local/boat-orange-91.png
+                  '92': /local/boat-orange-92.png
+                  '93': /local/boat-orange-93.png
+                  '94': /local/boat-orange-94.png
+                  '95': /local/boat-orange-95.png
+                  '96': /local/boat-orange-96.png
+                  '97': /local/boat-orange-97.png
+                  '98': /local/boat-orange-98.png
+                  '99': /local/boat-orange-99.png
+                  '100': /local/boat-orange-50.png
+                style:
+                  top: 10%
+                  left: 50%
+                  width: 100%
+              - type: conditional
+                conditions:
+                  - entity: sensor.ai_boat_2_progress
+                    state: '100'
+                elements:
+                  - type: image
+                    entity: sensor.ai_boat_2_progress
+                    state_image:
+                      '100': /local/boat-yellow-100.png
+                    style:
+                      top: 50%
+                      left: 50%
+                      width: 100%
+                      background-color: yellow
+                      z-index: 1
+              - type: image
+                entity: sensor.ai_boat_2_progress
+                state_image:
+                  '0': /local/boat-yellow-0.png
+                  '1': /local/boat-yellow-1.png
+                  '2': /local/boat-yellow-2.png
+                  '3': /local/boat-yellow-3.png
+                  '4': /local/boat-yellow-4.png
+                  '5': /local/boat-yellow-5.png
+                  '6': /local/boat-yellow-6.png
+                  '7': /local/boat-yellow-7.png
+                  '8': /local/boat-yellow-8.png
+                  '9': /local/boat-yellow-9.png
+                  '10': /local/boat-yellow-10.png
+                  '11': /local/boat-yellow-11.png
+                  '12': /local/boat-yellow-12.png
+                  '13': /local/boat-yellow-13.png
+                  '14': /local/boat-yellow-14.png
+                  '15': /local/boat-yellow-15.png
+                  '16': /local/boat-yellow-16.png
+                  '17': /local/boat-yellow-17.png
+                  '18': /local/boat-yellow-18.png
+                  '19': /local/boat-yellow-19.png
+                  '20': /local/boat-yellow-20.png
+                  '21': /local/boat-yellow-21.png
+                  '22': /local/boat-yellow-22.png
+                  '23': /local/boat-yellow-23.png
+                  '24': /local/boat-yellow-24.png
+                  '25': /local/boat-yellow-25.png
+                  '26': /local/boat-yellow-26.png
+                  '27': /local/boat-yellow-27.png
+                  '28': /local/boat-yellow-28.png
+                  '29': /local/boat-yellow-29.png
+                  '30': /local/boat-yellow-30.png
+                  '31': /local/boat-yellow-31.png
+                  '32': /local/boat-yellow-32.png
+                  '33': /local/boat-yellow-33.png
+                  '34': /local/boat-yellow-34.png
+                  '35': /local/boat-yellow-35.png
+                  '36': /local/boat-yellow-36.png
+                  '37': /local/boat-yellow-37.png
+                  '38': /local/boat-yellow-38.png
+                  '39': /local/boat-yellow-39.png
+                  '40': /local/boat-yellow-40.png
+                  '41': /local/boat-yellow-41.png
+                  '42': /local/boat-yellow-42.png
+                  '43': /local/boat-yellow-43.png
+                  '44': /local/boat-yellow-44.png
+                  '45': /local/boat-yellow-45.png
+                  '46': /local/boat-yellow-46.png
+                  '47': /local/boat-yellow-47.png
+                  '48': /local/boat-yellow-48.png
+                  '49': /local/boat-yellow-49.png
+                  '50': /local/boat-yellow-50.png
+                  '51': /local/boat-yellow-51.png
+                  '52': /local/boat-yellow-52.png
+                  '53': /local/boat-yellow-53.png
+                  '54': /local/boat-yellow-54.png
+                  '55': /local/boat-yellow-55.png
+                  '56': /local/boat-yellow-56.png
+                  '57': /local/boat-yellow-57.png
+                  '58': /local/boat-yellow-58.png
+                  '59': /local/boat-yellow-59.png
+                  '60': /local/boat-yellow-60.png
+                  '61': /local/boat-yellow-61.png
+                  '62': /local/boat-yellow-62.png
+                  '63': /local/boat-yellow-63.png
+                  '64': /local/boat-yellow-64.png
+                  '65': /local/boat-yellow-65.png
+                  '66': /local/boat-yellow-66.png
+                  '67': /local/boat-yellow-67.png
+                  '68': /local/boat-yellow-68.png
+                  '69': /local/boat-yellow-69.png
+                  '70': /local/boat-yellow-70.png
+                  '71': /local/boat-yellow-71.png
+                  '72': /local/boat-yellow-72.png
+                  '73': /local/boat-yellow-73.png
+                  '74': /local/boat-yellow-74.png
+                  '75': /local/boat-yellow-75.png
+                  '76': /local/boat-yellow-76.png
+                  '77': /local/boat-yellow-77.png
+                  '78': /local/boat-yellow-78.png
+                  '79': /local/boat-yellow-79.png
+                  '80': /local/boat-yellow-80.png
+                  '81': /local/boat-yellow-81.png
+                  '82': /local/boat-yellow-82.png
+                  '83': /local/boat-yellow-83.png
+                  '84': /local/boat-yellow-84.png
+                  '85': /local/boat-yellow-85.png
+                  '86': /local/boat-yellow-86.png
+                  '87': /local/boat-yellow-87.png
+                  '88': /local/boat-yellow-88.png
+                  '89': /local/boat-yellow-89.png
+                  '90': /local/boat-yellow-90.png
+                  '91': /local/boat-yellow-91.png
+                  '92': /local/boat-yellow-92.png
+                  '93': /local/boat-yellow-93.png
+                  '94': /local/boat-yellow-94.png
+                  '95': /local/boat-yellow-95.png
+                  '96': /local/boat-yellow-96.png
+                  '97': /local/boat-yellow-97.png
+                  '98': /local/boat-yellow-98.png
+                  '99': /local/boat-yellow-99.png
+                  '100': /local/boat-yellow-50.png
+                style:
+                  top: 30%
+                  left: 50%
+                  width: 100%
+              - type: conditional
+                conditions:
+                  - entity: sensor.user_boat_progress
+                    state: '100'
+                elements:
+                  - type: image
+                    entity: sensor.user_boat_progress
+                    state_image:
+                      '100': /local/boat-red-100.png
+                    style:
+                      top: 50%
+                      left: 50%
+                      width: 100%
+                      background-color: green
+                      z-index: 1
+              - type: image
+                entity: sensor.user_boat_progress
+                state_image:
+                  '0': /local/boat-red-0.png
+                  '1': /local/boat-red-1.png
+                  '2': /local/boat-red-2.png
+                  '3': /local/boat-red-3.png
+                  '4': /local/boat-red-4.png
+                  '5': /local/boat-red-5.png
+                  '6': /local/boat-red-6.png
+                  '7': /local/boat-red-7.png
+                  '8': /local/boat-red-8.png
+                  '9': /local/boat-red-9.png
+                  '10': /local/boat-red-10.png
+                  '11': /local/boat-red-11.png
+                  '12': /local/boat-red-12.png
+                  '13': /local/boat-red-13.png
+                  '14': /local/boat-red-14.png
+                  '15': /local/boat-red-15.png
+                  '16': /local/boat-red-16.png
+                  '17': /local/boat-red-17.png
+                  '18': /local/boat-red-18.png
+                  '19': /local/boat-red-19.png
+                  '20': /local/boat-red-20.png
+                  '21': /local/boat-red-21.png
+                  '22': /local/boat-red-22.png
+                  '23': /local/boat-red-23.png
+                  '24': /local/boat-red-24.png
+                  '25': /local/boat-red-25.png
+                  '26': /local/boat-red-26.png
+                  '27': /local/boat-red-27.png
+                  '28': /local/boat-red-28.png
+                  '29': /local/boat-red-29.png
+                  '30': /local/boat-red-30.png
+                  '31': /local/boat-red-31.png
+                  '32': /local/boat-red-32.png
+                  '33': /local/boat-red-33.png
+                  '34': /local/boat-red-34.png
+                  '35': /local/boat-red-35.png
+                  '36': /local/boat-red-36.png
+                  '37': /local/boat-red-37.png
+                  '38': /local/boat-red-38.png
+                  '39': /local/boat-red-39.png
+                  '40': /local/boat-red-40.png
+                  '41': /local/boat-red-41.png
+                  '42': /local/boat-red-42.png
+                  '43': /local/boat-red-43.png
+                  '44': /local/boat-red-44.png
+                  '45': /local/boat-red-45.png
+                  '46': /local/boat-red-46.png
+                  '47': /local/boat-red-47.png
+                  '48': /local/boat-red-48.png
+                  '49': /local/boat-red-49.png
+                  '50': /local/boat-red-50.png
+                  '51': /local/boat-red-51.png
+                  '52': /local/boat-red-52.png
+                  '53': /local/boat-red-53.png
+                  '54': /local/boat-red-54.png
+                  '55': /local/boat-red-55.png
+                  '56': /local/boat-red-56.png
+                  '57': /local/boat-red-57.png
+                  '58': /local/boat-red-58.png
+                  '59': /local/boat-red-59.png
+                  '60': /local/boat-red-60.png
+                  '61': /local/boat-red-61.png
+                  '62': /local/boat-red-62.png
+                  '63': /local/boat-red-63.png
+                  '64': /local/boat-red-64.png
+                  '65': /local/boat-red-65.png
+                  '66': /local/boat-red-66.png
+                  '67': /local/boat-red-67.png
+                  '68': /local/boat-red-68.png
+                  '69': /local/boat-red-69.png
+                  '70': /local/boat-red-70.png
+                  '71': /local/boat-red-71.png
+                  '72': /local/boat-red-72.png
+                  '73': /local/boat-red-73.png
+                  '74': /local/boat-red-74.png
+                  '75': /local/boat-red-75.png
+                  '76': /local/boat-red-76.png
+                  '77': /local/boat-red-77.png
+                  '78': /local/boat-red-78.png
+                  '79': /local/boat-red-79.png
+                  '80': /local/boat-red-80.png
+                  '81': /local/boat-red-81.png
+                  '82': /local/boat-red-82.png
+                  '83': /local/boat-red-83.png
+                  '84': /local/boat-red-84.png
+                  '85': /local/boat-red-85.png
+                  '86': /local/boat-red-86.png
+                  '87': /local/boat-red-87.png
+                  '88': /local/boat-red-88.png
+                  '89': /local/boat-red-89.png
+                  '90': /local/boat-red-90.png
+                  '91': /local/boat-red-91.png
+                  '92': /local/boat-red-92.png
+                  '93': /local/boat-red-93.png
+                  '94': /local/boat-red-94.png
+                  '95': /local/boat-red-95.png
+                  '96': /local/boat-red-96.png
+                  '97': /local/boat-red-97.png
+                  '98': /local/boat-red-98.png
+                  '99': /local/boat-red-99.png
+                  '100': /local/boat-red-50.png
+                style:
+                  top: 90%
+                  left: 50%
+                  width: 100%
+              - type: conditional
+                conditions:
+                  - entity: sensor.opponent_4_progress
+                    state: '100'
+                elements:
+                  - type: image
+                    entity: sensor.opponent_4_progress
+                    state_image:
+                      '100': /local/boat-blue-100.png
+                    style:
+                      top: 50%
+                      left: 50%
+                      width: 100%
+                      background-color: blue
+                      z-index: 1
+              - type: image
+                entity: sensor.opponent_4_progress
+                state_image:
+                  '0': /local/boat-blue-0.png
+                  '1': /local/boat-blue-1.png
+                  '2': /local/boat-blue-2.png
+                  '3': /local/boat-blue-3.png
+                  '4': /local/boat-blue-4.png
+                  '5': /local/boat-blue-5.png
+                  '6': /local/boat-blue-6.png
+                  '7': /local/boat-blue-7.png
+                  '8': /local/boat-blue-8.png
+                  '9': /local/boat-blue-9.png
+                  '10': /local/boat-blue-10.png
+                  '11': /local/boat-blue-11.png
+                  '12': /local/boat-blue-12.png
+                  '13': /local/boat-blue-13.png
+                  '14': /local/boat-blue-14.png
+                  '15': /local/boat-blue-15.png
+                  '16': /local/boat-blue-16.png
+                  '17': /local/boat-blue-17.png
+                  '18': /local/boat-blue-18.png
+                  '19': /local/boat-blue-19.png
+                  '20': /local/boat-blue-20.png
+                  '21': /local/boat-blue-21.png
+                  '22': /local/boat-blue-22.png
+                  '23': /local/boat-blue-23.png
+                  '24': /local/boat-blue-24.png
+                  '25': /local/boat-blue-25.png
+                  '26': /local/boat-blue-26.png
+                  '27': /local/boat-blue-27.png
+                  '28': /local/boat-blue-28.png
+                  '29': /local/boat-blue-29.png
+                  '30': /local/boat-blue-30.png
+                  '31': /local/boat-blue-31.png
+                  '32': /local/boat-blue-32.png
+                  '33': /local/boat-blue-33.png
+                  '34': /local/boat-blue-34.png
+                  '35': /local/boat-blue-35.png
+                  '36': /local/boat-blue-36.png
+                  '37': /local/boat-blue-37.png
+                  '38': /local/boat-blue-38.png
+                  '39': /local/boat-blue-39.png
+                  '40': /local/boat-blue-40.png
+                  '41': /local/boat-blue-41.png
+                  '42': /local/boat-blue-42.png
+                  '43': /local/boat-blue-43.png
+                  '44': /local/boat-blue-44.png
+                  '45': /local/boat-blue-45.png
+                  '46': /local/boat-blue-46.png
+                  '47': /local/boat-blue-47.png
+                  '48': /local/boat-blue-48.png
+                  '49': /local/boat-blue-49.png
+                  '50': /local/boat-blue-50.png
+                  '51': /local/boat-blue-51.png
+                  '52': /local/boat-blue-52.png
+                  '53': /local/boat-blue-53.png
+                  '54': /local/boat-blue-54.png
+                  '55': /local/boat-blue-55.png
+                  '56': /local/boat-blue-56.png
+                  '57': /local/boat-blue-57.png
+                  '58': /local/boat-blue-58.png
+                  '59': /local/boat-blue-59.png
+                  '60': /local/boat-blue-60.png
+                  '61': /local/boat-blue-61.png
+                  '62': /local/boat-blue-62.png
+                  '63': /local/boat-blue-63.png
+                  '64': /local/boat-blue-64.png
+                  '65': /local/boat-blue-65.png
+                  '66': /local/boat-blue-66.png
+                  '67': /local/boat-blue-67.png
+                  '68': /local/boat-blue-68.png
+                  '69': /local/boat-blue-69.png
+                  '70': /local/boat-blue-70.png
+                  '71': /local/boat-blue-71.png
+                  '72': /local/boat-blue-72.png
+                  '73': /local/boat-blue-73.png
+                  '74': /local/boat-blue-74.png
+                  '75': /local/boat-blue-75.png
+                  '76': /local/boat-blue-76.png
+                  '77': /local/boat-blue-77.png
+                  '78': /local/boat-blue-78.png
+                  '79': /local/boat-blue-79.png
+                  '80': /local/boat-blue-80.png
+                  '81': /local/boat-blue-81.png
+                  '82': /local/boat-blue-82.png
+                  '83': /local/boat-blue-83.png
+                  '84': /local/boat-blue-84.png
+                  '85': /local/boat-blue-85.png
+                  '86': /local/boat-blue-86.png
+                  '87': /local/boat-blue-87.png
+                  '88': /local/boat-blue-88.png
+                  '89': /local/boat-blue-89.png
+                  '90': /local/boat-blue-90.png
+                  '91': /local/boat-blue-91.png
+                  '92': /local/boat-blue-92.png
+                  '93': /local/boat-blue-93.png
+                  '94': /local/boat-blue-94.png
+                  '95': /local/boat-blue-95.png
+                  '96': /local/boat-blue-96.png
+                  '97': /local/boat-blue-97.png
+                  '98': /local/boat-blue-98.png
+                  '99': /local/boat-blue-99.png
+                  '100': /local/boat-blue-50.png
+                style:
+                  top: 70%
+                  left: 50%
+                  width: 100%
+              - type: conditional
+                conditions:
+                  - entity: sensor.opponent_3_progress
+                    state: '100'
+                elements:
+                  - type: image
+                    entity: sensor.opponent_3_progress
+                    state_image:
+                      '100': /local/boat-violet-100.png
+                    style:
+                      top: 50%
+                      left: 50%
+                      width: 100%
+                      background-color: purple
+                      z-index: 1
+              - type: image
+                entity: sensor.opponent_3_progress
+                state_image:
+                  '0': /local/boat-violet-0.png
+                  '1': /local/boat-violet-1.png
+                  '2': /local/boat-violet-2.png
+                  '3': /local/boat-violet-3.png
+                  '4': /local/boat-violet-4.png
+                  '5': /local/boat-violet-5.png
+                  '6': /local/boat-violet-6.png
+                  '7': /local/boat-violet-7.png
+                  '8': /local/boat-violet-8.png
+                  '9': /local/boat-violet-9.png
+                  '10': /local/boat-violet-10.png
+                  '11': /local/boat-violet-11.png
+                  '12': /local/boat-violet-12.png
+                  '13': /local/boat-violet-13.png
+                  '14': /local/boat-violet-14.png
+                  '15': /local/boat-violet-15.png
+                  '16': /local/boat-violet-16.png
+                  '17': /local/boat-violet-17.png
+                  '18': /local/boat-violet-18.png
+                  '19': /local/boat-violet-19.png
+                  '20': /local/boat-violet-20.png
+                  '21': /local/boat-violet-21.png
+                  '22': /local/boat-violet-22.png
+                  '23': /local/boat-violet-23.png
+                  '24': /local/boat-violet-24.png
+                  '25': /local/boat-violet-25.png
+                  '26': /local/boat-violet-26.png
+                  '27': /local/boat-violet-27.png
+                  '28': /local/boat-violet-28.png
+                  '29': /local/boat-violet-29.png
+                  '30': /local/boat-violet-30.png
+                  '31': /local/boat-violet-31.png
+                  '32': /local/boat-violet-32.png
+                  '33': /local/boat-violet-33.png
+                  '34': /local/boat-violet-34.png
+                  '35': /local/boat-violet-35.png
+                  '36': /local/boat-violet-36.png
+                  '37': /local/boat-violet-37.png
+                  '38': /local/boat-violet-38.png
+                  '39': /local/boat-violet-39.png
+                  '40': /local/boat-violet-40.png
+                  '41': /local/boat-violet-41.png
+                  '42': /local/boat-violet-42.png
+                  '43': /local/boat-violet-43.png
+                  '44': /local/boat-violet-44.png
+                  '45': /local/boat-violet-45.png
+                  '46': /local/boat-violet-46.png
+                  '47': /local/boat-violet-47.png
+                  '48': /local/boat-violet-48.png
+                  '49': /local/boat-violet-49.png
+                  '50': /local/boat-violet-50.png
+                  '51': /local/boat-violet-51.png
+                  '52': /local/boat-violet-52.png
+                  '53': /local/boat-violet-53.png
+                  '54': /local/boat-violet-54.png
+                  '55': /local/boat-violet-55.png
+                  '56': /local/boat-violet-56.png
+                  '57': /local/boat-violet-57.png
+                  '58': /local/boat-violet-58.png
+                  '59': /local/boat-violet-59.png
+                  '60': /local/boat-violet-60.png
+                  '61': /local/boat-violet-61.png
+                  '62': /local/boat-violet-62.png
+                  '63': /local/boat-violet-63.png
+                  '64': /local/boat-violet-64.png
+                  '65': /local/boat-violet-65.png
+                  '66': /local/boat-violet-66.png
+                  '67': /local/boat-violet-67.png
+                  '68': /local/boat-violet-68.png
+                  '69': /local/boat-violet-69.png
+                  '70': /local/boat-violet-70.png
+                  '71': /local/boat-violet-71.png
+                  '72': /local/boat-violet-72.png
+                  '73': /local/boat-violet-73.png
+                  '74': /local/boat-violet-74.png
+                  '75': /local/boat-violet-75.png
+                  '76': /local/boat-violet-76.png
+                  '77': /local/boat-violet-77.png
+                  '78': /local/boat-violet-78.png
+                  '79': /local/boat-violet-79.png
+                  '80': /local/boat-violet-80.png
+                  '81': /local/boat-violet-81.png
+                  '82': /local/boat-violet-82.png
+                  '83': /local/boat-violet-83.png
+                  '84': /local/boat-violet-84.png
+                  '85': /local/boat-violet-85.png
+                  '86': /local/boat-violet-86.png
+                  '87': /local/boat-violet-87.png
+                  '88': /local/boat-violet-88.png
+                  '89': /local/boat-violet-89.png
+                  '90': /local/boat-violet-90.png
+                  '91': /local/boat-violet-91.png
+                  '92': /local/boat-violet-92.png
+                  '93': /local/boat-violet-93.png
+                  '94': /local/boat-violet-94.png
+                  '95': /local/boat-violet-95.png
+                  '96': /local/boat-violet-96.png
+                  '97': /local/boat-violet-97.png
+                  '98': /local/boat-violet-98.png
+                  '99': /local/boat-violet-99.png
+                  '100': /local/boat-violet-50.png
+                style:
+                  top: 50%
+                  left: 50%
+                  width: 100%
+            grid_options:
+              columns: full
+              rows: auto
+          - type: entity
+            entity: sensor.rower_distance_total
+            grid_options:
+              columns: 12
+              rows: 2
+            state_color: false
+            name: Distanz
+          - type: entity
+            entity: sensor.rower_split_time_average
+            grid_options:
+              columns: 12
+              rows: 2
+            name: Zeit / 500m
+          - type: markdown
+            content: '### Allgemein'
+            grid_options:
+              columns: 6
+              rows: auto
+          - type: markdown
+            content: '### Distanz'
+            grid_options:
+              columns: 6
+              rows: auto
+          - type: markdown
+            content: '### Züge'
+            grid_options:
+              columns: 6
+              rows: auto
+          - type: markdown
+            content: '### Kalorien'
+            grid_options:
+              columns: 6
+              rows: auto
+          - type: tile
+            entity: sensor.rower_distance_total
+            features_position: bottom
+            vertical: false
+            grid_options:
+              columns: 6
+              rows: 1
+            show_entity_picture: false
+            hide_state: false
+            name: Distanz
+            card_mod:
+              style: |
+                ha-card {
+                  font-size: 48px !important;
+                  font-weight: bold !important;
+                  color: #1976d2 !important;
+                }
+          - type: tile
+            entity: sensor.rower_stroke_count
+            features_position: bottom
+            vertical: false
+            name: Anzahl Züge
+          - type: tile
+            entity: sensor.rower_energy_total
+            features_position: bottom
+            vertical: false
+            name: Verbrannte Kalorien
+          - type: tile
+            entity: sensor.rower_time_elapsed
+            features_position: bottom
+            vertical: false
+            name: Benötigte Zeit
+          - type: tile
+            entity: sensor.rower_split_time_average
+            features_position: bottom
+            vertical: false
+            name: Zeit / 500m
+          - type: tile
+            entity: sensor.rower_stroke_rate_average
+            name: Ø Züge / min
+            features_position: bottom
+            vertical: false
+            grid_options:
+              columns: 6
+              rows: 1
+            card_mod:
+              style: |
+                .tile-content {
+                  --tile-font-size: 56px !important;
+                }
+                .entity-state {
+                  font-size: 72px !important;
+                }
+          - type: tile
+            entity: sensor.rower_energy_per_hour
+            features_position: bottom
+            vertical: false
+            name: Kalorien / Stunde
+          - type: tile
+            entity: sensor.rower_resistance_level
+            features_position: bottom
+            vertical: false
+            name: Widerstandsstufe
+          - type: custom:button-card
+            color_type: blank-card
+            grid_options:
+              columns: 6
+              rows: 1
+          - type: tile
+            entity: sensor.rower_stroke_rate
+            features_position: bottom
+            vertical: false
+            name: Ø Zugrate
+          - type: tile
+            entity: sensor.rower_power
+            features_position: bottom
+            vertical: false
+            name: Watt insgesamt
+          - type: custom:button-card
+            color_type: blank-card
+            grid_options:
+              columns: 6
+              rows: 1
+          - type: custom:button-card
+            color_type: blank-card
+            grid_options:
+              columns: 6
+              rows: 1
+          - type: custom:button-card
+            color_type: blank-card
+            grid_options:
+              columns: 6
+              rows: 1
+          - type: tile
+            entity: sensor.rower_power_average
+            features_position: bottom
+            vertical: false
+            name: Durchschnttliche Watt
+        column_span: 2
+  - type: sections
+    max_columns: 4
+    title: Rowing Game Slim
+    path: rowing-game-slim
+    icon: mdi:rowing
+    sections:
+      - type: grid
+        cards: []
+        column_span: 4
+      - type: grid
+        cards:
+          - type: custom:mushroom-number-card
+            entity: input_number.rowing_distance
+            name: Distanz
+            icon: mdi:map-marker-distance
+            icon_color: green
+            fill_container: true
+            layout: horizontal
+            display_mode: buttons
+            grid_options:
+              columns: full
+              rows: 1
+          - type: custom:mushroom-number-card
+            entity: input_number.ai_opponent_1_hardness
+            name: Stärke Gegner 1
+            icon: mdi:stairs-up
+            icon_color: orange
+            grid_options:
+              columns: 18
+              rows: 1
+            fill_container: false
+            layout: horizontal
+          - type: custom:mushroom-number-card
+            entity: input_number.ai_opponent_2_hardness
+            name: Stärke Gegner 2
+            icon: mdi:stairs-up
+            icon_color: orange
+            grid_options:
+              columns: 18
+              rows: auto
+            layout: horizontal
+          - type: custom:mushroom-number-card
+            entity: input_number.opponent_3_pace_seconds
+            name: Gegner 3 | s/500m
+            icon: mdi:stairs-up
+            icon_color: orange
+            grid_options:
+              columns: 18
+              rows: auto
+            layout: horizontal
+          - type: custom:mushroom-number-card
+            entity: input_number.opponent_4_pace_seconds
+            name: Gegner 4 | s/500m
+            icon: mdi:stairs-up
+            icon_color: orange
+            grid_options:
+              columns: 18
+              rows: auto
+            layout: horizontal
+          - type: picture-elements
+            image: /local/river-background.png
+            elements:
+              - type: conditional
+                conditions:
+                  - entity: sensor.ai_boat_1_progress
+                    state: '100'
+                elements:
+                  - type: image
+                    entity: sensor.ai_boat_1_progress
+                    state_image:
+                      '100': /local/boat-orange-100.png
+                    style:
+                      top: 50%
+                      left: 50%
+                      width: 100%
+                      background-color: orange
+                      z-index: 1
+              - type: image
+                entity: sensor.ai_boat_1_progress
+                state_image:
+                  '0': /local/boat-orange-0.png
+                  '1': /local/boat-orange-1.png
+                  '2': /local/boat-orange-2.png
+                  '3': /local/boat-orange-3.png
+                  '4': /local/boat-orange-4.png
+                  '5': /local/boat-orange-5.png
+                  '6': /local/boat-orange-6.png
+                  '7': /local/boat-orange-7.png
+                  '8': /local/boat-orange-8.png
+                  '9': /local/boat-orange-9.png
+                  '10': /local/boat-orange-10.png
+                  '11': /local/boat-orange-11.png
+                  '12': /local/boat-orange-12.png
+                  '13': /local/boat-orange-13.png
+                  '14': /local/boat-orange-14.png
+                  '15': /local/boat-orange-15.png
+                  '16': /local/boat-orange-16.png
+                  '17': /local/boat-orange-17.png
+                  '18': /local/boat-orange-18.png
+                  '19': /local/boat-orange-19.png
+                  '20': /local/boat-orange-20.png
+                  '21': /local/boat-orange-21.png
+                  '22': /local/boat-orange-22.png
+                  '23': /local/boat-orange-23.png
+                  '24': /local/boat-orange-24.png
+                  '25': /local/boat-orange-25.png
+                  '26': /local/boat-orange-26.png
+                  '27': /local/boat-orange-27.png
+                  '28': /local/boat-orange-28.png
+                  '29': /local/boat-orange-29.png
+                  '30': /local/boat-orange-30.png
+                  '31': /local/boat-orange-31.png
+                  '32': /local/boat-orange-32.png
+                  '33': /local/boat-orange-33.png
+                  '34': /local/boat-orange-34.png
+                  '35': /local/boat-orange-35.png
+                  '36': /local/boat-orange-36.png
+                  '37': /local/boat-orange-37.png
+                  '38': /local/boat-orange-38.png
+                  '39': /local/boat-orange-39.png
+                  '40': /local/boat-orange-40.png
+                  '41': /local/boat-orange-41.png
+                  '42': /local/boat-orange-42.png
+                  '43': /local/boat-orange-43.png
+                  '44': /local/boat-orange-44.png
+                  '45': /local/boat-orange-45.png
+                  '46': /local/boat-orange-46.png
+                  '47': /local/boat-orange-47.png
+                  '48': /local/boat-orange-48.png
+                  '49': /local/boat-orange-49.png
+                  '50': /local/boat-orange-50.png
+                  '51': /local/boat-orange-51.png
+                  '52': /local/boat-orange-52.png
+                  '53': /local/boat-orange-53.png
+                  '54': /local/boat-orange-54.png
+                  '55': /local/boat-orange-55.png
+                  '56': /local/boat-orange-56.png
+                  '57': /local/boat-orange-57.png
+                  '58': /local/boat-orange-58.png
+                  '59': /local/boat-orange-59.png
+                  '60': /local/boat-orange-60.png
+                  '61': /local/boat-orange-61.png
+                  '62': /local/boat-orange-62.png
+                  '63': /local/boat-orange-63.png
+                  '64': /local/boat-orange-64.png
+                  '65': /local/boat-orange-65.png
+                  '66': /local/boat-orange-66.png
+                  '67': /local/boat-orange-67.png
+                  '68': /local/boat-orange-68.png
+                  '69': /local/boat-orange-69.png
+                  '70': /local/boat-orange-70.png
+                  '71': /local/boat-orange-71.png
+                  '72': /local/boat-orange-72.png
+                  '73': /local/boat-orange-73.png
+                  '74': /local/boat-orange-74.png
+                  '75': /local/boat-orange-75.png
+                  '76': /local/boat-orange-76.png
+                  '77': /local/boat-orange-77.png
+                  '78': /local/boat-orange-78.png
+                  '79': /local/boat-orange-79.png
+                  '80': /local/boat-orange-80.png
+                  '81': /local/boat-orange-81.png
+                  '82': /local/boat-orange-82.png
+                  '83': /local/boat-orange-83.png
+                  '84': /local/boat-orange-84.png
+                  '85': /local/boat-orange-85.png
+                  '86': /local/boat-orange-86.png
+                  '87': /local/boat-orange-87.png
+                  '88': /local/boat-orange-88.png
+                  '89': /local/boat-orange-89.png
+                  '90': /local/boat-orange-90.png
+                  '91': /local/boat-orange-91.png
+                  '92': /local/boat-orange-92.png
+                  '93': /local/boat-orange-93.png
+                  '94': /local/boat-orange-94.png
+                  '95': /local/boat-orange-95.png
+                  '96': /local/boat-orange-96.png
+                  '97': /local/boat-orange-97.png
+                  '98': /local/boat-orange-98.png
+                  '99': /local/boat-orange-99.png
+                  '100': /local/boat-orange-50.png
+                style:
+                  top: 10%
+                  left: 50%
+                  width: 100%
+              - type: conditional
+                conditions:
+                  - entity: sensor.ai_boat_2_progress
+                    state: '100'
+                elements:
+                  - type: image
+                    entity: sensor.ai_boat_2_progress
+                    state_image:
+                      '100': /local/boat-yellow-100.png
+                    style:
+                      top: 50%
+                      left: 50%
+                      width: 100%
+                      background-color: yellow
+                      z-index: 1
+              - type: image
+                entity: sensor.ai_boat_2_progress
+                state_image:
+                  '0': /local/boat-yellow-0.png
+                  '1': /local/boat-yellow-1.png
+                  '2': /local/boat-yellow-2.png
+                  '3': /local/boat-yellow-3.png
+                  '4': /local/boat-yellow-4.png
+                  '5': /local/boat-yellow-5.png
+                  '6': /local/boat-yellow-6.png
+                  '7': /local/boat-yellow-7.png
+                  '8': /local/boat-yellow-8.png
+                  '9': /local/boat-yellow-9.png
+                  '10': /local/boat-yellow-10.png
+                  '11': /local/boat-yellow-11.png
+                  '12': /local/boat-yellow-12.png
+                  '13': /local/boat-yellow-13.png
+                  '14': /local/boat-yellow-14.png
+                  '15': /local/boat-yellow-15.png
+                  '16': /local/boat-yellow-16.png
+                  '17': /local/boat-yellow-17.png
+                  '18': /local/boat-yellow-18.png
+                  '19': /local/boat-yellow-19.png
+                  '20': /local/boat-yellow-20.png
+                  '21': /local/boat-yellow-21.png
+                  '22': /local/boat-yellow-22.png
+                  '23': /local/boat-yellow-23.png
+                  '24': /local/boat-yellow-24.png
+                  '25': /local/boat-yellow-25.png
+                  '26': /local/boat-yellow-26.png
+                  '27': /local/boat-yellow-27.png
+                  '28': /local/boat-yellow-28.png
+                  '29': /local/boat-yellow-29.png
+                  '30': /local/boat-yellow-30.png
+                  '31': /local/boat-yellow-31.png
+                  '32': /local/boat-yellow-32.png
+                  '33': /local/boat-yellow-33.png
+                  '34': /local/boat-yellow-34.png
+                  '35': /local/boat-yellow-35.png
+                  '36': /local/boat-yellow-36.png
+                  '37': /local/boat-yellow-37.png
+                  '38': /local/boat-yellow-38.png
+                  '39': /local/boat-yellow-39.png
+                  '40': /local/boat-yellow-40.png
+                  '41': /local/boat-yellow-41.png
+                  '42': /local/boat-yellow-42.png
+                  '43': /local/boat-yellow-43.png
+                  '44': /local/boat-yellow-44.png
+                  '45': /local/boat-yellow-45.png
+                  '46': /local/boat-yellow-46.png
+                  '47': /local/boat-yellow-47.png
+                  '48': /local/boat-yellow-48.png
+                  '49': /local/boat-yellow-49.png
+                  '50': /local/boat-yellow-50.png
+                  '51': /local/boat-yellow-51.png
+                  '52': /local/boat-yellow-52.png
+                  '53': /local/boat-yellow-53.png
+                  '54': /local/boat-yellow-54.png
+                  '55': /local/boat-yellow-55.png
+                  '56': /local/boat-yellow-56.png
+                  '57': /local/boat-yellow-57.png
+                  '58': /local/boat-yellow-58.png
+                  '59': /local/boat-yellow-59.png
+                  '60': /local/boat-yellow-60.png
+                  '61': /local/boat-yellow-61.png
+                  '62': /local/boat-yellow-62.png
+                  '63': /local/boat-yellow-63.png
+                  '64': /local/boat-yellow-64.png
+                  '65': /local/boat-yellow-65.png
+                  '66': /local/boat-yellow-66.png
+                  '67': /local/boat-yellow-67.png
+                  '68': /local/boat-yellow-68.png
+                  '69': /local/boat-yellow-69.png
+                  '70': /local/boat-yellow-70.png
+                  '71': /local/boat-yellow-71.png
+                  '72': /local/boat-yellow-72.png
+                  '73': /local/boat-yellow-73.png
+                  '74': /local/boat-yellow-74.png
+                  '75': /local/boat-yellow-75.png
+                  '76': /local/boat-yellow-76.png
+                  '77': /local/boat-yellow-77.png
+                  '78': /local/boat-yellow-78.png
+                  '79': /local/boat-yellow-79.png
+                  '80': /local/boat-yellow-80.png
+                  '81': /local/boat-yellow-81.png
+                  '82': /local/boat-yellow-82.png
+                  '83': /local/boat-yellow-83.png
+                  '84': /local/boat-yellow-84.png
+                  '85': /local/boat-yellow-85.png
+                  '86': /local/boat-yellow-86.png
+                  '87': /local/boat-yellow-87.png
+                  '88': /local/boat-yellow-88.png
+                  '89': /local/boat-yellow-89.png
+                  '90': /local/boat-yellow-90.png
+                  '91': /local/boat-yellow-91.png
+                  '92': /local/boat-yellow-92.png
+                  '93': /local/boat-yellow-93.png
+                  '94': /local/boat-yellow-94.png
+                  '95': /local/boat-yellow-95.png
+                  '96': /local/boat-yellow-96.png
+                  '97': /local/boat-yellow-97.png
+                  '98': /local/boat-yellow-98.png
+                  '99': /local/boat-yellow-99.png
+                  '100': /local/boat-yellow-50.png
+                style:
+                  top: 30%
+                  left: 50%
+                  width: 100%
+              - type: conditional
+                conditions:
+                  - entity: sensor.user_boat_progress
+                    state: '100'
+                elements:
+                  - type: image
+                    entity: sensor.user_boat_progress
+                    state_image:
+                      '100': /local/boat-red-100.png
+                    style:
+                      top: 50%
+                      left: 50%
+                      width: 100%
+                      background-color: green
+                      z-index: 1
+              - type: image
+                entity: sensor.user_boat_progress
+                state_image:
+                  '0': /local/boat-red-0.png
+                  '1': /local/boat-red-1.png
+                  '2': /local/boat-red-2.png
+                  '3': /local/boat-red-3.png
+                  '4': /local/boat-red-4.png
+                  '5': /local/boat-red-5.png
+                  '6': /local/boat-red-6.png
+                  '7': /local/boat-red-7.png
+                  '8': /local/boat-red-8.png
+                  '9': /local/boat-red-9.png
+                  '10': /local/boat-red-10.png
+                  '11': /local/boat-red-11.png
+                  '12': /local/boat-red-12.png
+                  '13': /local/boat-red-13.png
+                  '14': /local/boat-red-14.png
+                  '15': /local/boat-red-15.png
+                  '16': /local/boat-red-16.png
+                  '17': /local/boat-red-17.png
+                  '18': /local/boat-red-18.png
+                  '19': /local/boat-red-19.png
+                  '20': /local/boat-red-20.png
+                  '21': /local/boat-red-21.png
+                  '22': /local/boat-red-22.png
+                  '23': /local/boat-red-23.png
+                  '24': /local/boat-red-24.png
+                  '25': /local/boat-red-25.png
+                  '26': /local/boat-red-26.png
+                  '27': /local/boat-red-27.png
+                  '28': /local/boat-red-28.png
+                  '29': /local/boat-red-29.png
+                  '30': /local/boat-red-30.png
+                  '31': /local/boat-red-31.png
+                  '32': /local/boat-red-32.png
+                  '33': /local/boat-red-33.png
+                  '34': /local/boat-red-34.png
+                  '35': /local/boat-red-35.png
+                  '36': /local/boat-red-36.png
+                  '37': /local/boat-red-37.png
+                  '38': /local/boat-red-38.png
+                  '39': /local/boat-red-39.png
+                  '40': /local/boat-red-40.png
+                  '41': /local/boat-red-41.png
+                  '42': /local/boat-red-42.png
+                  '43': /local/boat-red-43.png
+                  '44': /local/boat-red-44.png
+                  '45': /local/boat-red-45.png
+                  '46': /local/boat-red-46.png
+                  '47': /local/boat-red-47.png
+                  '48': /local/boat-red-48.png
+                  '49': /local/boat-red-49.png
+                  '50': /local/boat-red-50.png
+                  '51': /local/boat-red-51.png
+                  '52': /local/boat-red-52.png
+                  '53': /local/boat-red-53.png
+                  '54': /local/boat-red-54.png
+                  '55': /local/boat-red-55.png
+                  '56': /local/boat-red-56.png
+                  '57': /local/boat-red-57.png
+                  '58': /local/boat-red-58.png
+                  '59': /local/boat-red-59.png
+                  '60': /local/boat-red-60.png
+                  '61': /local/boat-red-61.png
+                  '62': /local/boat-red-62.png
+                  '63': /local/boat-red-63.png
+                  '64': /local/boat-red-64.png
+                  '65': /local/boat-red-65.png
+                  '66': /local/boat-red-66.png
+                  '67': /local/boat-red-67.png
+                  '68': /local/boat-red-68.png
+                  '69': /local/boat-red-69.png
+                  '70': /local/boat-red-70.png
+                  '71': /local/boat-red-71.png
+                  '72': /local/boat-red-72.png
+                  '73': /local/boat-red-73.png
+                  '74': /local/boat-red-74.png
+                  '75': /local/boat-red-75.png
+                  '76': /local/boat-red-76.png
+                  '77': /local/boat-red-77.png
+                  '78': /local/boat-red-78.png
+                  '79': /local/boat-red-79.png
+                  '80': /local/boat-red-80.png
+                  '81': /local/boat-red-81.png
+                  '82': /local/boat-red-82.png
+                  '83': /local/boat-red-83.png
+                  '84': /local/boat-red-84.png
+                  '85': /local/boat-red-85.png
+                  '86': /local/boat-red-86.png
+                  '87': /local/boat-red-87.png
+                  '88': /local/boat-red-88.png
+                  '89': /local/boat-red-89.png
+                  '90': /local/boat-red-90.png
+                  '91': /local/boat-red-91.png
+                  '92': /local/boat-red-92.png
+                  '93': /local/boat-red-93.png
+                  '94': /local/boat-red-94.png
+                  '95': /local/boat-red-95.png
+                  '96': /local/boat-red-96.png
+                  '97': /local/boat-red-97.png
+                  '98': /local/boat-red-98.png
+                  '99': /local/boat-red-99.png
+                  '100': /local/boat-red-50.png
+                style:
+                  top: 90%
+                  left: 50%
+                  width: 100%
+              - type: conditional
+                conditions:
+                  - entity: sensor.opponent_4_progress
+                    state: '100'
+                elements:
+                  - type: image
+                    entity: sensor.opponent_4_progress
+                    state_image:
+                      '100': /local/boat-blue-100.png
+                    style:
+                      top: 50%
+                      left: 50%
+                      width: 100%
+                      background-color: blue
+                      z-index: 1
+              - type: image
+                entity: sensor.opponent_4_progress
+                state_image:
+                  '0': /local/boat-blue-0.png
+                  '1': /local/boat-blue-1.png
+                  '2': /local/boat-blue-2.png
+                  '3': /local/boat-blue-3.png
+                  '4': /local/boat-blue-4.png
+                  '5': /local/boat-blue-5.png
+                  '6': /local/boat-blue-6.png
+                  '7': /local/boat-blue-7.png
+                  '8': /local/boat-blue-8.png
+                  '9': /local/boat-blue-9.png
+                  '10': /local/boat-blue-10.png
+                  '11': /local/boat-blue-11.png
+                  '12': /local/boat-blue-12.png
+                  '13': /local/boat-blue-13.png
+                  '14': /local/boat-blue-14.png
+                  '15': /local/boat-blue-15.png
+                  '16': /local/boat-blue-16.png
+                  '17': /local/boat-blue-17.png
+                  '18': /local/boat-blue-18.png
+                  '19': /local/boat-blue-19.png
+                  '20': /local/boat-blue-20.png
+                  '21': /local/boat-blue-21.png
+                  '22': /local/boat-blue-22.png
+                  '23': /local/boat-blue-23.png
+                  '24': /local/boat-blue-24.png
+                  '25': /local/boat-blue-25.png
+                  '26': /local/boat-blue-26.png
+                  '27': /local/boat-blue-27.png
+                  '28': /local/boat-blue-28.png
+                  '29': /local/boat-blue-29.png
+                  '30': /local/boat-blue-30.png
+                  '31': /local/boat-blue-31.png
+                  '32': /local/boat-blue-32.png
+                  '33': /local/boat-blue-33.png
+                  '34': /local/boat-blue-34.png
+                  '35': /local/boat-blue-35.png
+                  '36': /local/boat-blue-36.png
+                  '37': /local/boat-blue-37.png
+                  '38': /local/boat-blue-38.png
+                  '39': /local/boat-blue-39.png
+                  '40': /local/boat-blue-40.png
+                  '41': /local/boat-blue-41.png
+                  '42': /local/boat-blue-42.png
+                  '43': /local/boat-blue-43.png
+                  '44': /local/boat-blue-44.png
+                  '45': /local/boat-blue-45.png
+                  '46': /local/boat-blue-46.png
+                  '47': /local/boat-blue-47.png
+                  '48': /local/boat-blue-48.png
+                  '49': /local/boat-blue-49.png
+                  '50': /local/boat-blue-50.png
+                  '51': /local/boat-blue-51.png
+                  '52': /local/boat-blue-52.png
+                  '53': /local/boat-blue-53.png
+                  '54': /local/boat-blue-54.png
+                  '55': /local/boat-blue-55.png
+                  '56': /local/boat-blue-56.png
+                  '57': /local/boat-blue-57.png
+                  '58': /local/boat-blue-58.png
+                  '59': /local/boat-blue-59.png
+                  '60': /local/boat-blue-60.png
+                  '61': /local/boat-blue-61.png
+                  '62': /local/boat-blue-62.png
+                  '63': /local/boat-blue-63.png
+                  '64': /local/boat-blue-64.png
+                  '65': /local/boat-blue-65.png
+                  '66': /local/boat-blue-66.png
+                  '67': /local/boat-blue-67.png
+                  '68': /local/boat-blue-68.png
+                  '69': /local/boat-blue-69.png
+                  '70': /local/boat-blue-70.png
+                  '71': /local/boat-blue-71.png
+                  '72': /local/boat-blue-72.png
+                  '73': /local/boat-blue-73.png
+                  '74': /local/boat-blue-74.png
+                  '75': /local/boat-blue-75.png
+                  '76': /local/boat-blue-76.png
+                  '77': /local/boat-blue-77.png
+                  '78': /local/boat-blue-78.png
+                  '79': /local/boat-blue-79.png
+                  '80': /local/boat-blue-80.png
+                  '81': /local/boat-blue-81.png
+                  '82': /local/boat-blue-82.png
+                  '83': /local/boat-blue-83.png
+                  '84': /local/boat-blue-84.png
+                  '85': /local/boat-blue-85.png
+                  '86': /local/boat-blue-86.png
+                  '87': /local/boat-blue-87.png
+                  '88': /local/boat-blue-88.png
+                  '89': /local/boat-blue-89.png
+                  '90': /local/boat-blue-90.png
+                  '91': /local/boat-blue-91.png
+                  '92': /local/boat-blue-92.png
+                  '93': /local/boat-blue-93.png
+                  '94': /local/boat-blue-94.png
+                  '95': /local/boat-blue-95.png
+                  '96': /local/boat-blue-96.png
+                  '97': /local/boat-blue-97.png
+                  '98': /local/boat-blue-98.png
+                  '99': /local/boat-blue-99.png
+                  '100': /local/boat-blue-50.png
+                style:
+                  top: 70%
+                  left: 50%
+                  width: 100%
+              - type: conditional
+                conditions:
+                  - entity: sensor.opponent_3_progress
+                    state: '100'
+                elements:
+                  - type: image
+                    entity: sensor.opponent_3_progress
+                    state_image:
+                      '100': /local/boat-violet-100.png
+                    style:
+                      top: 50%
+                      left: 50%
+                      width: 100%
+                      background-color: purple
+                      z-index: 1
+              - type: image
+                entity: sensor.opponent_3_progress
+                state_image:
+                  '0': /local/boat-violet-0.png
+                  '1': /local/boat-violet-1.png
+                  '2': /local/boat-violet-2.png
+                  '3': /local/boat-violet-3.png
+                  '4': /local/boat-violet-4.png
+                  '5': /local/boat-violet-5.png
+                  '6': /local/boat-violet-6.png
+                  '7': /local/boat-violet-7.png
+                  '8': /local/boat-violet-8.png
+                  '9': /local/boat-violet-9.png
+                  '10': /local/boat-violet-10.png
+                  '11': /local/boat-violet-11.png
+                  '12': /local/boat-violet-12.png
+                  '13': /local/boat-violet-13.png
+                  '14': /local/boat-violet-14.png
+                  '15': /local/boat-violet-15.png
+                  '16': /local/boat-violet-16.png
+                  '17': /local/boat-violet-17.png
+                  '18': /local/boat-violet-18.png
+                  '19': /local/boat-violet-19.png
+                  '20': /local/boat-violet-20.png
+                  '21': /local/boat-violet-21.png
+                  '22': /local/boat-violet-22.png
+                  '23': /local/boat-violet-23.png
+                  '24': /local/boat-violet-24.png
+                  '25': /local/boat-violet-25.png
+                  '26': /local/boat-violet-26.png
+                  '27': /local/boat-violet-27.png
+                  '28': /local/boat-violet-28.png
+                  '29': /local/boat-violet-29.png
+                  '30': /local/boat-violet-30.png
+                  '31': /local/boat-violet-31.png
+                  '32': /local/boat-violet-32.png
+                  '33': /local/boat-violet-33.png
+                  '34': /local/boat-violet-34.png
+                  '35': /local/boat-violet-35.png
+                  '36': /local/boat-violet-36.png
+                  '37': /local/boat-violet-37.png
+                  '38': /local/boat-violet-38.png
+                  '39': /local/boat-violet-39.png
+                  '40': /local/boat-violet-40.png
+                  '41': /local/boat-violet-41.png
+                  '42': /local/boat-violet-42.png
+                  '43': /local/boat-violet-43.png
+                  '44': /local/boat-violet-44.png
+                  '45': /local/boat-violet-45.png
+                  '46': /local/boat-violet-46.png
+                  '47': /local/boat-violet-47.png
+                  '48': /local/boat-violet-48.png
+                  '49': /local/boat-violet-49.png
+                  '50': /local/boat-violet-50.png
+                  '51': /local/boat-violet-51.png
+                  '52': /local/boat-violet-52.png
+                  '53': /local/boat-violet-53.png
+                  '54': /local/boat-violet-54.png
+                  '55': /local/boat-violet-55.png
+                  '56': /local/boat-violet-56.png
+                  '57': /local/boat-violet-57.png
+                  '58': /local/boat-violet-58.png
+                  '59': /local/boat-violet-59.png
+                  '60': /local/boat-violet-60.png
+                  '61': /local/boat-violet-61.png
+                  '62': /local/boat-violet-62.png
+                  '63': /local/boat-violet-63.png
+                  '64': /local/boat-violet-64.png
+                  '65': /local/boat-violet-65.png
+                  '66': /local/boat-violet-66.png
+                  '67': /local/boat-violet-67.png
+                  '68': /local/boat-violet-68.png
+                  '69': /local/boat-violet-69.png
+                  '70': /local/boat-violet-70.png
+                  '71': /local/boat-violet-71.png
+                  '72': /local/boat-violet-72.png
+                  '73': /local/boat-violet-73.png
+                  '74': /local/boat-violet-74.png
+                  '75': /local/boat-violet-75.png
+                  '76': /local/boat-violet-76.png
+                  '77': /local/boat-violet-77.png
+                  '78': /local/boat-violet-78.png
+                  '79': /local/boat-violet-79.png
+                  '80': /local/boat-violet-80.png
+                  '81': /local/boat-violet-81.png
+                  '82': /local/boat-violet-82.png
+                  '83': /local/boat-violet-83.png
+                  '84': /local/boat-violet-84.png
+                  '85': /local/boat-violet-85.png
+                  '86': /local/boat-violet-86.png
+                  '87': /local/boat-violet-87.png
+                  '88': /local/boat-violet-88.png
+                  '89': /local/boat-violet-89.png
+                  '90': /local/boat-violet-90.png
+                  '91': /local/boat-violet-91.png
+                  '92': /local/boat-violet-92.png
+                  '93': /local/boat-violet-93.png
+                  '94': /local/boat-violet-94.png
+                  '95': /local/boat-violet-95.png
+                  '96': /local/boat-violet-96.png
+                  '97': /local/boat-violet-97.png
+                  '98': /local/boat-violet-98.png
+                  '99': /local/boat-violet-99.png
+                  '100': /local/boat-violet-50.png
+                style:
+                  top: 50%
+                  left: 50%
+                  width: 100%
+            grid_options:
+              columns: full
+              rows: auto
+          - type: entity
+            entity: sensor.rower_distance_total
+            grid_options:
+              columns: 18
+              rows: null
+            state_color: false
+            name: Distanz
+          - type: entity
+            entity: sensor.rower_split_time_average
+            grid_options:
+              columns: 18
+              rows: null
+            name: Zeit / 500m
+          - type: gauge
+            entity: sensor.ai_boat_1_progress
+            min: 0
+            max: 100
+            name: AI Boat 1 Progress
+            grid_options:
+              rows: 2
+              columns: 7
+            unit: '%'
+            needle: false
+            segments:
+              - from: 0
+                to: 100
+                color: orange
+          - type: gauge
+            entity: sensor.ai_boat_2_progress
+            min: 0
+            max: 100
+            name: AI Boat 2 Progress
+            grid_options:
+              columns: 7
+              rows: 2
+            unit: '%'
+            segments:
+              - from: 0
+                to: 100
+                color: yellow
+          - type: gauge
+            entity: sensor.opponent_3_progress
+            min: 0
+            max: 100
+            name: Zeitgegner 1
+            needle: false
+            grid_options:
+              columns: 7
+              rows: 2
+            segments:
+              - from: 0
+                to: 100
+                color: purple
+          - type: gauge
+            entity: sensor.opponent_4_progress
+            min: 0
+            max: 100
+            name: Zeitgegner 2
+            needle: false
+            grid_options:
+              columns: 7
+              rows: 2
+            severity:
+              green: 200
+              yellow: 200
+              red: 200
+          - type: gauge
+            entity: sensor.user_boat_progress
+            min: 0
+            max: 100
+            needle: false
+            grid_options:
+              columns: 8
+              rows: 2
+            name: Spieler
+            severity:
+              green: 0
+              yellow: 0
+              red: 0
+        column_span: 4
+    cards: []
